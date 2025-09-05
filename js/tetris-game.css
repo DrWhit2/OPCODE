@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    background: #111;
+    margin: 0;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    /* 글자색은 전역에서 지정하지 않음 */
+}
+
+/* 테트리스 UI만 빨강색 적용 */
+.tetris-container,
+#tetris2-container {
+    color: #ff3333;
+}
+
+.tetris-container {
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    justify-content: center;
+    align-items: flex-start;
+    background: #111;
+}
+
+.tetris-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.score-display,
+.level-display,
+.next-display,
+.statistics-display {
+    background: none;
+    color: #ff3333;
+    font-size: 12px;
+    padding: 4px;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.score-display span {
+    color: #ff3333;
+}
+
+.start-btn {
+    padding: 10px 20px;
+    font-size: 12px;
+    border: none;
+    background: #222;
+    color: #ff3333;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.start-btn:hover {
+    background: #333;
+}
+
+.tetris-board {
+    display: grid;
+    grid-template-rows: repeat(20, 24px);
+    grid-template-columns: repeat(10, 24px);
+    background: #000;
+    padding: 4px;
+    gap: 1px;
+}
+
+.tetris-cell {
+    width: 24px;
+    height: 24px;
+    background: #1a1a1a;
+    box-sizing: border-box;
+}
+
+.tetris-cell.filled {
+    background: #ff3333;
+}
+
+/* 모든 블록 빨강 통일 */
+.tetris-cell.I,
+.tetris-cell.O,
+.tetris-cell.T,
+.tetris-cell.S,
+.tetris-cell.Z,
+.tetris-cell.J,
+.tetris-cell.L {
+    background: #ff3333;
+    border: none;
+}
+
+.game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ff3333;
+    font-size: 1.2em;
+    font-weight: bold;
+    background: #000;
+    padding: 10px 30px;
+    text-align: center;
+    z-index: 10;
+}
+
+.game-over-text {
+    color: #ff3333;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.highlight-text {
+    color: #ff3333;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .tetris-board {
+        grid-template-rows: repeat(20, 15px);
+        grid-template-columns: repeat(10, 15px);
+        gap: 1px;
+    }
+
+    .tetris-cell {
+        width: 15px;
+        height: 15px;
+    }
+
+    .score-display {
+        font-size: 10px;
+    }
+
+    .start-btn {
+        padding: 6px 10px;
+        font-size: 10px;
+    }
+}
